@@ -16,6 +16,7 @@ export default class MainPage extends Component {
 
 
   makeRoom(){
+    var id = ""
     let roomObj =
     {
         roomName: "room-",
@@ -36,11 +37,17 @@ export default class MainPage extends Component {
         }
 
         else{
-          //console.log('_id: ' + result );
+          ServerRooms.update({_id:result},
+            {
+              $set:{
+                roomName: "room_"+result
+              }
+            });
           browserHistory.push('/room/'+result);
         }
       }
     );
+
   }
 
   joinRoom(){

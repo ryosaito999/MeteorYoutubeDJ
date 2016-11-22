@@ -22,11 +22,13 @@ class RoomTemplate extends Component {
 
     return false;
   }
+
+
   render(){
     if(this.props.currentRoom !== undefined){
       return(
         <div>
-          Welcome to room {this.props.currentRoom.roomName}
+          Welcome to {this.props.currentRoom.roomName}
         </div>
       );
     }
@@ -34,7 +36,7 @@ class RoomTemplate extends Component {
     else{
       return(
         <div>
-          Loading
+          Loading...
         </div>
       );
     }
