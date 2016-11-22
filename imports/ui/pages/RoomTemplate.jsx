@@ -8,34 +8,46 @@ class RoomTemplate extends Component {
 
   constructor(props){
     super(props);
-    console.log(this.props.currentRoom);
-    console.log("ID: " + this.props.currentRoom._id);
-
 
     this.state = {
       roomInfoObj:""
     }
+
   }
 
+  checkUndefined(obj){
+    if(obj === 'undefined'){
+      return true;
+    }
 
+    return false;
+  }
   render(){
-    return (
-      <div >
-        Welcome to room {this.props.currentRoom._id}
-      </div>
-    );
+    if(this.props.currentRoom !== undefined){
+      return(
+        <div>
+          Welcome to room {this.props.currentRoom.roomName}
+        </div>
+      );
+    }
+
+    else{
+      return(
+        <div>
+          Loading
+        </div>
+      );
+    }
   }
 }
 
 RoomTemplate.PropTypes = {
-
+  currentRoom: PropTypes.object.isRequired
 }
 
 
 export default createContainer( ({params}) => {
-  //console.log(params);
   let tmpObj =  ServerRooms.findOne({_id: params.id});
-
   return {
     currentRoom: tmpObj
   };
