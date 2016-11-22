@@ -4,28 +4,7 @@ import ReactDOM from 'react-dom';
 import { ServerRooms  } from '../../../api/ServerRooms.js'
 
 export default class Player extends Component {
-  let roomID = "abbb";
-  upsertTestRoom(){
-    ServerRooms.upsert({
-      // Selector
-      roomID: "1234",
 
-    },
-
-    {
-    // Modifier
-      $set:
-      {
-          playList: [],
-          currentVideoId: "",
-          currentVideoTime: "",
-          isPlaying: false,
-          userList: [],
-          inviteLink: "abbb"
-      }
-
-    });
-  }
 
   constructor(props){
     super(props);
@@ -117,8 +96,8 @@ export default class Player extends Component {
       }
     };
 
-    //render black screen if no video is slected
-    //render video if videoID exists
+    // render black screen if no video is slected
+    // render video if videoID exists
     return (
     <div>
 
@@ -152,6 +131,7 @@ export default class Player extends Component {
       </form>
     </div>
     );
+
   }
 
   onReady(event) {

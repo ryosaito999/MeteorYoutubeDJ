@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { browserHistory, Link } from 'react-router'
-import { createContainer } from 'meteor/react-meteor-data';
-import {ServerRooms } from '../../api/ServerRooms.js'
+import {createContainer}  from 'meteor/react-meteor-data';
+import {ServerRooms}  from '../../api/ServerRooms.js'
+import Player from '../componets/player/Player.jsx'
 
 class RoomTemplate extends Component {
 
@@ -27,8 +28,11 @@ class RoomTemplate extends Component {
   render(){
     if(this.props.currentRoom !== undefined){
       return(
+
+        //insert Chat App, Youtube Video, and button to show link
         <div>
-          Welcome to {this.props.currentRoom.roomName}
+            <h1>Welcome to {this.props.currentRoom.roomName}</h1>
+            <Player />
         </div>
       );
     }
