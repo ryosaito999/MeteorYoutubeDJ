@@ -2,8 +2,9 @@ import React from 'react'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import MainPage from '../ui/pages/MainPage.jsx'
 import RoomTemplate from '../ui/pages/RoomTemplate.jsx'
+
 // // containers
-// import AppContainer from '../ui/containers/AppContainer.jsx'
+import RoomContainer from '../ui/containers/RoomContainer.jsx'
 // import MainContainer from '../ui/containers/MainContainer.jsx'
 //
 // // pages

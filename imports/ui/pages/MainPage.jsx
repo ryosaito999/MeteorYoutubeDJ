@@ -5,6 +5,7 @@ export default class MainPage extends Component {
   constructor(props){
     super(props);
     this.state = {
+      createRoom: true,
     }
 
     //need two on submit handlers
@@ -15,18 +16,17 @@ export default class MainPage extends Component {
 
 
   makeRoom(){
-    //alert("made room");
-    //make a mongoDB entry for the room
-
     let roomObj =
     {
-        roomName: "",
-        users: [ "admin" ],
+        roomName: "room-",
+        userIdList: [ "admin" ],
+        currentAdmin: "",
         createdAt: new Date(), // current time
         currentVideoId: "",
         isPlaying: false,
         currentVideoTime: 0,
         MessageList: [],
+
     };
 
     ServerRooms.insert(roomObj,
@@ -36,22 +36,32 @@ export default class MainPage extends Component {
         }
 
         else{
-          console.log('_id: ' + result ); //this._id doesn't work either
+          //console.log('_id: ' + result );
           browserHistory.push('/room/'+result);
         }
       }
     );
-
-
-
-
-
-
-
   }
 
   joinRoom(){
     //for later
+  }
+
+  renderForm(){
+    if(this.state.createRoom){
+      return (
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Email:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" placeholder="Enter email"/>
+        </div>
+      </div>
+      );
+    }
+
+    else{
+      return;
+    }
   }
 
   render(){
@@ -68,8 +78,7 @@ export default class MainPage extends Component {
                 className ="btn btn-info">
                 Join a Room
         </button>
-
-         <li><Link to="/bob" activeClassName="active">Bob</Link></li>
+        {this.render}
       </div>
     );
   }
