@@ -17,10 +17,12 @@ export default class MainPage extends Component {
 
   makeRoom(){
     var id = ""
+    //make user
+    Session.set('adminCreate', true);    
     let roomObj =
     {
         roomName: "room-",
-        userIdList: [ "admin" ],
+        userList: [ "admin" ],
         currentAdmin: "",
         createdAt: new Date(), // current time
         currentVideoId: "",
